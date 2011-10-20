@@ -13,6 +13,7 @@
 		<module>brewmaster-war</module>
 		<module>brewmaster-flex-parent</module>
 		<module>brewmaster-flex-domain</module>
+		<module>brewmaster-java-jpa</module>
 	</modules>
 
 </project>
