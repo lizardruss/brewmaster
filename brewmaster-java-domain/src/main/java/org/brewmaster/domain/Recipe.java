@@ -1,14 +1,14 @@
 package org.brewmaster.domain;
 
 import javax.annotation.Resource;
+import javax.persistence.Entity;
 
 import org.brewmaster.persistence.EntityDao;
-import org.hibernate.annotations.Entity;
 import org.springframework.beans.factory.annotation.Configurable;
 
 @Configurable
 @Entity
-public class Recipe implements org.brewmaster.domain.Entity<Recipe> {
+public class Recipe implements org.brewmaster.persistence.Entity<Recipe> {
 
 	@Resource
 	private EntityDao dao;

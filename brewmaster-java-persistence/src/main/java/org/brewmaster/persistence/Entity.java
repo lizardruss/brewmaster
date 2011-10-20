@@ -1,4 +1,4 @@
-package org.brewmaster.domain;
+package org.brewmaster.persistence;
 
 public interface Entity<T> {
 	public void create();

@@ -1,4 +1,4 @@
-package org.brewmaster;
+package org.brewmaster.persistence;
 
 import java.util.List;
 
