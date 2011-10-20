@@ -1,4 +1,4 @@
-package org.brewmaster.persistence.hibernate;
+package org.brewmaster.persistence.jpa;
 
 import javax.annotation.Resource;
 import javax.persistence.EntityManager;
