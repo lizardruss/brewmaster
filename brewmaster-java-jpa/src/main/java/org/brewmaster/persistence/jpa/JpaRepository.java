@@ -1,4 +1,4 @@
-package org.brewmaster.persistence.hibernate;
+package org.brewmaster.persistence.jpa;
 
 import java.util.List;
 
