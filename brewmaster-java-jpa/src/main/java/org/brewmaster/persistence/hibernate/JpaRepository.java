@@ -7,7 +7,7 @@ import javax.persistence.EntityManager;
 import javax.persistence.criteria.CriteriaBuilder;
 import javax.persistence.criteria.CriteriaQuery;
 
-import org.brewmaster.Repository;
+import org.brewmaster.persistence.Repository;
 
 public class JpaRepository implements Repository {
 
