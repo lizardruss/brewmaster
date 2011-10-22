@@ -10,29 +10,30 @@
     </parent>
 
     <groupId>com.russellcentanni</groupId>
-    <artifactId>brewmaster-java-jpa</artifactId>
+    <artifactId>brewmaster-java-service</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <name>BrewMaster JPA Implementation</name>
+    <name>BrewMaster Java Services</name>
+    <description>Java Based Entity Services</description>
 
     <dependencies>
         <dependency>
             <groupId>com.russellcentanni</groupId>
-            <artifactId>brewmaster-java-persistence</artifactId>
+            <artifactId>brewmaster-java-domain</artifactId>
             <version>${version}</version>
-        </dependency>
-        <dependency>
-            <groupId>org.hibernate.javax.persistence</groupId>
-            <artifactId>hibernate-jpa-2.0-api</artifactId>
-            <version>1.0.1.Final</version>
         </dependency>
         <dependency>
             <groupId>org.springframework</groupId>
             <artifactId>spring-context</artifactId>
         </dependency>
         <dependency>
-        	<groupId>org.springframework</groupId>
-        	<artifactId>spring-orm</artifactId>
-        	<version>3.0.6.RELEASE</version>
+            <groupId>org.hsqldb</groupId>
+            <artifactId>hsqldb</artifactId>
+            <version>2.2.4</version>
+        </dependency>
+        <dependency>
+            <groupId>commons-dbcp</groupId>
+            <artifactId>commons-dbcp</artifactId>
+            <version>1.4</version>
         </dependency>
     </dependencies>
 

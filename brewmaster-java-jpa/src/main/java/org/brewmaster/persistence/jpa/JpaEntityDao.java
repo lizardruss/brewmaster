@@ -1,13 +1,15 @@
 package org.brewmaster.persistence.jpa;
 
-import javax.annotation.Resource;
 import javax.persistence.EntityManager;
+import javax.persistence.PersistenceContext;
 
 import org.brewmaster.persistence.EntityDao;
+import org.springframework.stereotype.Repository;
 
+@Repository
 public class JpaEntityDao extends JpaRepository implements EntityDao {
 
-	@Resource
+	@PersistenceContext
 	private EntityManager entityManager;
 	
 	public void save(Object entity) {
