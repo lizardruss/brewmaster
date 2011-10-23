@@ -1,8 +1,9 @@
 package org.brewmaster.service;
 
-import static org.brewmaster.testing.RecipeFixtures.hatePorter;
-import static org.brewmaster.testing.RecipeFixtures.krampusRed;
-import static org.brewmaster.testing.RecipeFixtures.pilsenerUrquelle;
+import static org.brewmaster.testing.HopFixtures.cascade;
+import static org.brewmaster.testing.HopFixtures.centennial;
+import static org.brewmaster.testing.HopFixtures.hallertauer;
+import static org.brewmaster.testing.HopFixtures.magnum;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertNotNull;
@@ -15,7 +16,7 @@ import java.util.List;
 import javax.annotation.Resource;
 import javax.persistence.PersistenceException;
 
-import org.brewmaster.domain.Recipe;
+import org.brewmaster.domain.Hop;
 import org.brewmaster.testing.IntegrationTestHelper;
 import org.junit.After;
 import org.junit.Before;
@@ -26,24 +27,25 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(locations = { "classpath:applicationContext.xml" })
-public class RecipeServiceTest {
+public class HopServiceTest {
 
 	@Resource
 	private IntegrationTestHelper integrationTestHelper;
 
 	@Resource
-	private RecipeService fixture;
+	private HopService fixture;
 
-	private Recipe entity;
+	private Hop entity;
 	
-	private List<Recipe> allEntities;
+	private List<Hop> allEntities;
 
 	@Before
 	public void setUp() throws Exception {
-		allEntities = new LinkedList<Recipe>();
-		allEntities.add(pilsenerUrquelle());
-		allEntities.add(krampusRed());
-		allEntities.add(hatePorter());
+		allEntities = new LinkedList<Hop>();
+		allEntities.add(cascade());
+		allEntities.add(centennial());
+		allEntities.add(hallertauer());
+		allEntities.add(magnum());
 
 		integrationTestHelper.persistNow(allEntities);
 
@@ -58,38 +60,34 @@ public class RecipeServiceTest {
 	
 	@Test
 	public void testSave() throws Exception {
-		Recipe entity = new Recipe();
-		entity.setName("Yukon Brewing Arctic Red");
-		entity.setDescription("An Irish Red from Alaska.");
-
-		Recipe savedRecipe = fixture.save(entity);
-		assertNotNull(savedRecipe.getId());
+		Hop entity = new Hop();
+		entity.setName("Imaginary");
+		
+		Hop savedEntity = fixture.save(entity);
+		assertNotNull(savedEntity.getId());
 	}
 
 	@Test(expected = PersistenceException.class)
 	public void testSaveExisting() throws Exception {
-		Recipe entity = new Recipe();
-		entity.setId(this.entity.getId());
-		entity.setDescription(this.entity.getDescription());
-		entity.setName(this.entity.getName());
+		Hop entity = new Hop();
+		entity.setName("Cascade");
 
 		fixture.save(entity);
 	}
 
 	@Test(expected = IllegalArgumentException.class)
 	public void testUpdateNew() throws Exception {
-		Recipe entity = new Recipe();
-		entity.setName("Some new recipe.");
-		entity.setDescription("OMG!! So exciting new recipe.. blah!");
-		
+		Hop entity = new Hop();
+		entity.setName("Cascade");
+
 		fixture.update(entity);
 	}
 	
 	@Test
 	public void testUpdateExisting() throws Exception {
-		entity.setDescription("A clone of the original lager.");
+		entity.setDescription("Crisp Hop used in Sierra Nevada.");
 		
-		Recipe updatedEntity = fixture.update(entity);
+		Hop updatedEntity = fixture.update(entity);
 		
 		assertEquals(entity.getId(), updatedEntity.getId());
 		assertEquals(entity.getName(), updatedEntity.getName());
@@ -99,12 +97,12 @@ public class RecipeServiceTest {
 
 	@Test
 	public void testDelete() throws Exception {
-		Recipe loadedEntity = fixture.get(entity.getId());
+		Hop loadedEntity = fixture.get(entity.getId());
 		assertNotNull(loadedEntity);
 
 		fixture.delete(entity);
 
-		Recipe deletedEntity = fixture.get(entity.getId());
+		Hop deletedEntity = fixture.get(entity.getId());
 		assertNull(deletedEntity);
 	}
 	
@@ -118,7 +116,7 @@ public class RecipeServiceTest {
 		assertNotNull(entity.getId());
 		assertFalse(entity.getId().equals(0L));
 
-		Recipe loadedEntity = fixture.get(entity.getId());
+		Hop loadedEntity = fixture.get(entity.getId());
 
 		assertNotNull(loadedEntity);
 		assertNotSame(entity, loadedEntity);
@@ -128,9 +126,9 @@ public class RecipeServiceTest {
 
 	@Test
 	public void testList() throws Exception {
-		List<Recipe> entities = fixture.list();
+		List<Hop> entities = fixture.list();
 
 		assertNotNull(entities);
-		assertEquals(3, entities.size());
+		assertEquals(4, entities.size());
 	}
 }

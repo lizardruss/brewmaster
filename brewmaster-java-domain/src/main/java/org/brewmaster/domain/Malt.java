@@ -6,7 +6,8 @@ import javax.persistence.UniqueConstraint;
 
 @Entity
 @Table(uniqueConstraints = @UniqueConstraint(name = "UNIQUE_NAME", columnNames = "name"))
-public class Recipe extends AbstractEntity<Recipe> {
+public class Malt extends AbstractEntity<Malt> {
+	
 	private String description;
 
 	public String getDescription() {
@@ -27,8 +28,8 @@ public class Recipe extends AbstractEntity<Recipe> {
 		this.name = name;
 	}
 
-	public void update(Recipe templateEntity) {
-		setDescription(templateEntity.getDescription());
+	public void update(Malt templateEntity) {
 		setName(templateEntity.getName());
+		setDescription(templateEntity.getDescription());
 	}
 }

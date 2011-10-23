@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<persistence xmlns="http://java.sun.com/xml/ns/persistence"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://java.sun.com/xml/ns/persistence">
+	<persistence-unit name="brewmasterEntityManager"
+		transaction-type="RESOURCE_LOCAL">
+		<class>org.brewmaster.domain.Recipe</class>
+		<properties>
+			<property name="hibernate.format_sql" value="true" />
+<!-- 			<property name="hibernate.hbm2ddl.auto" value="create-drop" /> -->
+		</properties>
+	</persistence-unit>
+</persistence>
