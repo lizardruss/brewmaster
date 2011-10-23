@@ -8,9 +8,7 @@
 		<version>0.0.1-SNAPSHOT</version>
 		<relativePath>../brewmaster-flex-parent</relativePath>
 	</parent>
-	<groupId>com.russellcentanni</groupId>
 	<artifactId>brewmaster-flex-domain</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
 	<name>BrewMaster Flex Domain</name>
 	<url>http://maven.apache.org</url>
 	<properties>

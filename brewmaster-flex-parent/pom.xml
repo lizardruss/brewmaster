@@ -6,9 +6,7 @@
 		<groupId>com.russellcentanni</groupId>
 		<version>0.0.1-SNAPSHOT</version>
 	</parent>
-	<groupId>com.russellcentanni</groupId>
 	<artifactId>brewmaster-flex-parent</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
 	<packaging>pom</packaging>
 	<name>BrewMaster Flex Parent</name>
 
