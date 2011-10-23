@@ -39,7 +39,7 @@ public class IntegrationTestHelper {
 		Configuration hibernateConfiguration = configuredConfiguration
 				.getHibernateConfiguration();
 		SchemaExport schemaExport = new SchemaExport(hibernateConfiguration);
-		schemaExport.setOutputFile("schema.sql");
+		schemaExport.setOutputFile("src/main/resources/schema.sql");
 		schemaExport.create(true, false);
 	}
 	
