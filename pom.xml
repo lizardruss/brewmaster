@@ -16,6 +16,7 @@
 		<module>brewmaster-flex-parent</module>
 		<module>brewmaster-flex-domain</module>
 		<module>brewmaster-java-service</module>
+		<module>brewmaster-java-validation</module>
 	</modules>
 
 </project>

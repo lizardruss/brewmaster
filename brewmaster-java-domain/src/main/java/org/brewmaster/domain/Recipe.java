@@ -4,9 +4,15 @@ import javax.persistence.Entity;
 import javax.persistence.Table;
 import javax.persistence.UniqueConstraint;
 
+import net.sf.oval.constraint.NotEmpty;
+import net.sf.oval.constraint.NotNull;
+
 @Entity
 @Table(uniqueConstraints = @UniqueConstraint(name = "UNIQUE_NAME", columnNames = "name"))
 public class Recipe extends AbstractEntity<Recipe> {
+	
+	@NotNull(errorCode = "recipe.description.null")
+	@NotEmpty(errorCode = "recipe.description.empty")
 	private String description;
 
 	public String getDescription() {
@@ -17,6 +23,8 @@ public class Recipe extends AbstractEntity<Recipe> {
 		this.description = description;
 	}
 
+	@NotNull(errorCode = "recipe.name.null")
+	@NotEmpty(errorCode = "recipe.name.empty")
 	private String name;
 
 	public String getName() {

@@ -171,6 +171,13 @@
 				<artifactId>hsqldb</artifactId>
 				<version>2.2.4</version>
 			</dependency>
+			
+			<!-- VALIDATION -->
+			<dependency>
+				<groupId>net.sf.oval</groupId>
+				<artifactId>oval</artifactId>
+				<version>1.80</version>
+			</dependency>
 
 		</dependencies>
 	</dependencyManagement>

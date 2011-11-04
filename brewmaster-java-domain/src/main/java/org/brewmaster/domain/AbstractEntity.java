@@ -7,8 +7,12 @@ import javax.persistence.MappedSuperclass;
 import javax.persistence.Transient;
 import javax.persistence.Version;
 
+import net.sf.oval.constraint.Min;
+import net.sf.oval.constraint.NotNull;
+
 import org.brewmaster.persistence.Entity;
 import org.brewmaster.persistence.EntityDao;
+import org.brewmaster.validation.IdRequired;
 import org.springframework.beans.factory.annotation.Configurable;
 
 @Configurable
@@ -17,9 +21,11 @@ abstract public class AbstractEntity<T> implements Entity<T> {
 	@Resource
 	@Transient
 	private EntityDao dao;
-	
+
 	@Id
 	@GeneratedValue
+	@NotNull(errorCode = "entity.id.null", profiles = {IdRequired.PROFILE})
+	@Min(value = 1, errorCode = "entity.id.min", profiles = {IdRequired.PROFILE})
 	private Long id;
 
 	public Long getId() {
@@ -29,10 +35,10 @@ abstract public class AbstractEntity<T> implements Entity<T> {
 	public void setId(Long id) {
 		this.id = id;
 	}
-	
+
 	@Version
 	private Long version;
-	
+
 	public Long getVersion() {
 		return version;
 	}
@@ -44,7 +50,7 @@ abstract public class AbstractEntity<T> implements Entity<T> {
 	public void save() {
 		dao.save(this);
 	}
-	
+
 	public void delete() {
 		dao.delete(this);
 	}

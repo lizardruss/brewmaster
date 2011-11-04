@@ -4,10 +4,15 @@ import javax.persistence.Entity;
 import javax.persistence.Table;
 import javax.persistence.UniqueConstraint;
 
+import net.sf.oval.constraint.NotEmpty;
+import net.sf.oval.constraint.NotNull;
+
 @Entity
 @Table(uniqueConstraints = @UniqueConstraint(name = "UNIQUE_NAME", columnNames = "name"))
 public class Malt extends AbstractEntity<Malt> {
 	
+	@NotNull(errorCode = "malt.description.null")
+	@NotEmpty(errorCode = "malt.description.empty")
 	private String description;
 
 	public String getDescription() {
@@ -18,6 +23,8 @@ public class Malt extends AbstractEntity<Malt> {
 		this.description = description;
 	}
 
+	@NotNull(errorCode = "malt.name.null")
+	@NotEmpty(errorCode = "malt.name.empty")
 	private String name;
 
 	public String getName() {
