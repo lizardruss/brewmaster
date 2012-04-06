@@ -12,11 +12,10 @@
 		<module>brewmaster-java-domain</module>
 		<module>brewmaster-java-jpa</module>
 		<module>brewmaster-java-persistence</module>
-		<module>brewmaster-war</module>
-		<module>brewmaster-flex-parent</module>
-		<module>brewmaster-flex-domain</module>
 		<module>brewmaster-java-service</module>
 		<module>brewmaster-java-validation</module>
+		<module>brewmaster-war</module>
+		<module>brewmaster-data</module>
 	</modules>
 
 </project>
