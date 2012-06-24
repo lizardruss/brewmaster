@@ -8,12 +8,12 @@
 	<packaging>pom</packaging>
 	<name>BrewMaster Parent</name>
 	<modules>
+		<module>brewmaster-bjcp</module>
 		<module>brewmaster-java-parent</module>
 		<module>brewmaster-java-domain</module>
 		<module>brewmaster-java-service</module>
 		<module>brewmaster-java-validation</module>
 		<module>brewmaster-war</module>
-		<module>brewmaster-data</module>
 		<module>brewmaster-testdata</module>
 	</modules>
 
