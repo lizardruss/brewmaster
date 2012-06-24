@@ -1,15 +1,15 @@
 package org.brewmaster.domain;
 
+import net.sf.oval.constraint.NotEmpty;
+import net.sf.oval.constraint.NotNull;
+
 import javax.persistence.Entity;
 import javax.persistence.Table;
 import javax.persistence.UniqueConstraint;
 
-import net.sf.oval.constraint.NotEmpty;
-import net.sf.oval.constraint.NotNull;
-
 @Entity
 @Table(uniqueConstraints = @UniqueConstraint(name = "UNIQUE_NAME", columnNames = "name"))
-public class Malt extends AbstractEntity<Malt> {
+public class Malt extends BaseEntity {
 	
 	@NotNull(errorCode = "malt.description.null")
 	@NotEmpty(errorCode = "malt.description.empty")

@@ -1,13 +1,16 @@
 package org.brewmaster.domain;
 
-import javax.persistence.*;
-
 import net.sf.oval.constraint.NotEmpty;
 import net.sf.oval.constraint.NotNull;
 
+import javax.persistence.Entity;
+import javax.persistence.Lob;
+import javax.persistence.Table;
+import javax.persistence.UniqueConstraint;
+
 @Entity
 @Table(uniqueConstraints = @UniqueConstraint(name = "UNIQUE_NAME", columnNames = "name"))
-public class Hop extends AbstractEntity<Hop> {
+public class Hop extends BaseEntity {
 
 	@NotNull(errorCode = "hop.description.null")
 	@NotEmpty(errorCode = "hop.description.empty")

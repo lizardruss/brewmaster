@@ -7,7 +7,7 @@ import javax.persistence.Entity;
 import javax.persistence.ManyToOne;
 
 @Entity
-public class MaltAddition extends AbstractEntity<MaltAddition> {
+public class MaltAddition extends BaseEntity {
 
     @NotNull(errorCode = "malt.type.null")
     @ManyToOne

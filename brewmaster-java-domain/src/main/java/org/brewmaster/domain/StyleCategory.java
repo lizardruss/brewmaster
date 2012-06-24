@@ -1,15 +1,13 @@
 package org.brewmaster.domain;
 
+import javax.persistence.Id;
 import java.util.Collection;
 import java.util.LinkedHashMap;
-import java.util.LinkedList;
-import java.util.List;
 import java.util.Map;
 
-import javax.persistence.Id;
-
 public class StyleCategory {
-    	private Map<String, Style> styles;
+
+    private Map<String, Style> styles;
     
 	@Id
 	private Long id;

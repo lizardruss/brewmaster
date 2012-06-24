@@ -1,12 +1,6 @@
 package org.brewmaster.domain;
 
-import static org.springframework.test.util.ReflectionTestUtils.setField;
-import static net.sf.oval.testing.Assert.assertValid;
-import static net.sf.oval.testing.Assert.assertErrorCodes;
-
-import org.brewmaster.persistence.EntityDao;
 import org.brewmaster.validation.IdRequired;
-import org.jmock.Expectations;
 import org.jmock.Mockery;
 import org.junit.After;
 import org.junit.Before;
@@ -17,65 +11,27 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 import javax.annotation.Resource;
 
+import static net.sf.oval.testing.Assert.assertErrorCodes;
+import static net.sf.oval.testing.Assert.assertValid;
+
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(locations = { "classpath:Mocks.xml" })
-public class AbstractEntityTest {
+public class BaseEntityTest {
 
     @Resource
 	private Mockery context;
 
-	private AbstractEntity fixture;
-
-    @Resource(name="dao")
-	private EntityDao dao;
+	private BaseEntity fixture;
 
 	@Before
 	public void setUp() throws Exception {
-		fixture = new AbstractEntity<Integer>() {};
+		fixture = new BaseEntity() {};
 		fixture.setId(1L);
-
-		dao = context.mock(EntityDao.class);
-		setField(fixture, "dao", dao);
 	}
 
 	@After
 	public void tearDown() throws Exception {
 		context.assertIsSatisfied();
-	}
-
-	@Test
-	public void testCreate() {
-		context.checking(new Expectations() {
-			{
-				oneOf(dao).save(fixture);
-			}
-		});
-
-		fixture.save();
-	}
-
-    @Test
-	public void testUpdate() {
-        final AbstractEntity template = new AbstractEntity() {};
-
-        context.checking(new Expectations() {
-			{
-				oneOf(dao).merge(template);
-			}
-		});
-
-		fixture.update(template);
-	}
-
-	@Test
-	public void testDelete() {
-		context.checking(new Expectations() {
-			{
-				oneOf(dao).delete(fixture);
-			}
-		});
-
-		fixture.delete();
 	}
 
 	@Test

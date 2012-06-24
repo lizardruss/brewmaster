@@ -1,15 +1,14 @@
 package org.brewmaster.domain;
 
-import javax.persistence.*;
-
 import net.sf.oval.constraint.NotEmpty;
 import net.sf.oval.constraint.NotNull;
 
+import javax.persistence.*;
 import java.util.List;
 
 @Entity
 @Table(uniqueConstraints = @UniqueConstraint(name = "UNIQUE_NAME", columnNames = "name"))
-public class Recipe extends AbstractEntity<Recipe> {
+public class Recipe extends BaseEntity {
 	
 	@NotNull(errorCode = "recipe.description.null")
 	@NotEmpty(errorCode = "recipe.description.empty")

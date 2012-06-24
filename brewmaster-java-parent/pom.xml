@@ -15,8 +15,8 @@
 	<name>BrewMaster Java Parent</name>
 
 	<properties>
-		<org.springframework.version>3.0.6.RELEASE</org.springframework.version>
-		<org.hibernate.version>3.6.7.Final</org.hibernate.version>
+		<org.springframework.version>3.0.7.RELEASE</org.springframework.version>
+		<org.hibernate.version>4.1.5-SNAPSHOT</org.hibernate.version>
 		<org.jmock.version>2.5.1</org.jmock.version>
 	</properties>
 
@@ -52,6 +52,18 @@
 							</goals>
 						</execution>
 					</executions>
+                    <dependencies>
+                        <dependency>
+                            <groupId>org.aspectj</groupId>
+                            <artifactId>aspectjrt</artifactId>
+                            <version>1.6.12</version>
+                        </dependency>
+                        <dependency>
+                            <groupId>org.aspectj</groupId>
+                            <artifactId>aspectjtools</artifactId>
+                            <version>1.6.12</version>
+                        </dependency>
+                    </dependencies>
 				</plugin>
 			</plugins>
 		</pluginManagement>
@@ -87,7 +99,7 @@
 			</dependency>
 			<dependency>
 				<groupId>org.springframework</groupId>
-				<artifactId>spring-aspectj</artifactId>
+				<artifactId>spring-aspects</artifactId>
 				<version>${org.springframework.version}</version>
 			</dependency>
 			<dependency>
@@ -105,7 +117,12 @@
 				<artifactId>spring-context-support</artifactId>
 				<version>${org.springframework.version}</version>
 			</dependency>
-			<dependency>
+            <dependency>
+                <groupId>org.springframework.data</groupId>
+                <artifactId>spring-data-jpa</artifactId>
+                <version>1.1.0.RELEASE</version>
+            </dependency>
+            <dependency>
 				<groupId>org.springframework</groupId>
 				<artifactId>spring-orm</artifactId>
 				<version>${org.springframework.version}</version>
@@ -113,7 +130,7 @@
 			<dependency>
 				<groupId>org.springframework</groupId>
 				<artifactId>spring-tx</artifactId>
-				<version>3.0.6.RELEASE</version>
+				<version>${org.springframework.version}</version>
 			</dependency>
 			<dependency>
 				<groupId>org.springframework</groupId>
@@ -144,6 +161,11 @@
 				<artifactId>hibernate-entitymanager</artifactId>
 				<version>${org.hibernate.version}</version>
 			</dependency>
+            <dependency>
+                <groupId>org.slf4j</groupId>
+                <artifactId>slf4j-jcl</artifactId>
+                <version>1.6.1</version>
+            </dependency>
 
 			<!-- TESTING -->
 			<dependency>
@@ -155,6 +177,12 @@
 				<groupId>org.jmock</groupId>
 				<artifactId>jmock-junit4</artifactId>
 				<version>${org.jmock.version}</version>
+                <exclusions>
+                    <exclusion>
+                        <groupId>junit</groupId>
+                        <artifactId>junit-dep</artifactId>
+                    </exclusion>
+                </exclusions>
 			</dependency>
 			<dependency>
 				<groupId>org.jmock</groupId>
@@ -190,7 +218,7 @@
 				<enabled>true</enabled>
 			</releases>
 			<snapshots>
-				<enabled>false</enabled>
+				<enabled>true</enabled>
 			</snapshots>
 		</repository>
 	</repositories>

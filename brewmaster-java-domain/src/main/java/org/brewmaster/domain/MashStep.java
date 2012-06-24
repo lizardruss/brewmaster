@@ -4,10 +4,10 @@ import net.sf.oval.constraint.AssertValid;
 import net.sf.oval.constraint.NotNegative;
 import net.sf.oval.constraint.NotNull;
 
-import javax.persistence.*;
+import javax.persistence.Entity;
 
 @Entity
-public class MashStep extends AbstractEntity<MashStep> {
+public class MashStep extends BaseEntity {
 
     @NotNull(errorCode = "mashstep.infusion.null")
     @AssertValid(errorCode = "mashstep.infusion.valid")

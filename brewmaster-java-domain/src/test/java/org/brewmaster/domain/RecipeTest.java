@@ -1,16 +1,14 @@
 package org.brewmaster.domain;
 
-import static net.sf.oval.testing.Assert.assertErrorCodes;
-import static net.sf.oval.testing.Assert.assertValid;
-import static org.junit.Assert.*;
-
-import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 import javax.annotation.Resource;
+
+import static net.sf.oval.testing.Assert.assertErrorCodes;
+import static net.sf.oval.testing.Assert.assertValid;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(locations = { "classpath:Mocks.xml", "classpath:RecipeFixtures.xml" })

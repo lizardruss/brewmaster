@@ -1,25 +1,19 @@
 package org.brewmaster.service;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertFalse;
-import static org.junit.Assert.assertNotNull;
-import static org.junit.Assert.assertNotSame;
-import static org.junit.Assert.assertNull;
-
-import java.util.LinkedList;
-import java.util.List;
-
-import javax.annotation.Resource;
-import javax.persistence.PersistenceException;
-
 import org.brewmaster.domain.Malt;
 import org.brewmaster.testing.IntegrationTestHelper;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
+import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
+
+import javax.annotation.Resource;
+import java.util.List;
+
+import static org.junit.Assert.*;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(locations = { "classpath:applicationContext.xml", "classpath:MaltFixtures.xml" })
@@ -56,33 +50,12 @@ public class MaltServiceTest {
 		assertNotNull(savedEntity.getId());
 	}
 
-	@Test(expected = PersistenceException.class)
+    @Test(expected = DataIntegrityViolationException.class)
 	public void testSaveExisting() throws Exception {
 		Malt entity = new Malt();
 		entity.setName("Crystal 10");
 
 		fixture.save(entity);
-	}
-
-	@Test(expected = IllegalArgumentException.class)
-	public void testUpdateNew() throws Exception {
-		Malt entity = new Malt();
-		entity.setName("Crystal");
-
-		fixture.update(entity);
-	}
-
-	@Test
-	public void testUpdateExisting() throws Exception {
-		entity.setDescription("Crystal malt for flavor or color.");
-
-		Malt updatedEntity = fixture.update(entity);
-
-		assertEquals(entity.getId(), updatedEntity.getId());
-		assertEquals(entity.getName(), updatedEntity.getName());
-		assertEquals(entity.getDescription(), updatedEntity.getDescription());
-		assertEquals(new Long(entity.getVersion() + 1),
-				updatedEntity.getVersion());
 	}
 
 	@Test
@@ -116,9 +89,9 @@ public class MaltServiceTest {
 
 	@Test
 	public void testList() throws Exception {
-		List<Malt> entities = fixture.list();
+		Iterable<Malt> entities = fixture.list();
 
 		assertNotNull(entities);
-		assertEquals(9, entities.size());
+		assertTrue(entities.iterator().hasNext());
 	}
 }

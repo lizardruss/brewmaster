@@ -10,8 +10,6 @@
 	<modules>
 		<module>brewmaster-java-parent</module>
 		<module>brewmaster-java-domain</module>
-		<module>brewmaster-java-jpa</module>
-		<module>brewmaster-java-persistence</module>
 		<module>brewmaster-java-service</module>
 		<module>brewmaster-java-validation</module>
 		<module>brewmaster-war</module>

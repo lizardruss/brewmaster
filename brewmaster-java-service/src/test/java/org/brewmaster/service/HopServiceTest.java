@@ -1,24 +1,19 @@
 package org.brewmaster.service;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertFalse;
-import static org.junit.Assert.assertNotNull;
-import static org.junit.Assert.assertNotSame;
-import static org.junit.Assert.assertNull;
-
-import java.util.List;
-
-import javax.annotation.Resource;
-import javax.persistence.PersistenceException;
-
 import org.brewmaster.domain.Hop;
 import org.brewmaster.testing.IntegrationTestHelper;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
+import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
+
+import javax.annotation.Resource;
+import java.util.List;
+
+import static org.junit.Assert.*;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(locations = { "classpath:applicationContext.xml", "classpath:HopFixtures.xml" })
@@ -56,32 +51,12 @@ public class HopServiceTest {
 		assertNotNull(savedEntity.getId());
 	}
 
-	@Test(expected = PersistenceException.class)
+	@Test(expected = DataIntegrityViolationException.class)
 	public void testSaveExisting() throws Exception {
 		Hop entity = new Hop();
 		entity.setName("Cascade");
 
-		fixture.save(entity);
-	}
-
-	@Test(expected = IllegalArgumentException.class)
-	public void testUpdateNew() throws Exception {
-		Hop entity = new Hop();
-		entity.setName("Cascade");
-
-		fixture.update(entity);
-	}
-	
-	@Test
-	public void testUpdateExisting() throws Exception {
-		entity.setDescription("Crisp Hop used in Sierra Nevada.");
-		
-		Hop updatedEntity = fixture.update(entity);
-		
-		assertEquals(entity.getId(), updatedEntity.getId());
-		assertEquals(entity.getName(), updatedEntity.getName());
-		assertEquals(entity.getDescription(), updatedEntity.getDescription());
-		assertEquals(new Long(entity.getVersion() + 1), updatedEntity.getVersion());
+        fixture.save(entity);
 	}
 
 	@Test
@@ -115,9 +90,9 @@ public class HopServiceTest {
 
 	@Test
 	public void testList() throws Exception {
-		List<Hop> entities = fixture.list();
+		Iterable<Hop> entities = fixture.list();
 
 		assertNotNull(entities);
-		assertEquals(5, entities.size());
+		assertTrue(entities.iterator().hasNext());
 	}
 }

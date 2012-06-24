@@ -1,12 +1,12 @@
 package org.brewmaster.domain;
 
-import net.sf.oval.constraint.*;
-import net.sf.oval.constraint.Range;
+import net.sf.oval.constraint.Assert;
+import net.sf.oval.constraint.NotNull;
 
 import javax.persistence.Entity;
 
 @Entity
-public class MashTun extends AbstractEntity<MashTun> {
+public class MashTun extends BaseEntity {
 
     @Assert(expr = "_value > 0", errorCode = "mashtun.thermalmass.assert", lang = "javascript")
     @NotNull(errorCode = "mashtun.thermalmass.null")

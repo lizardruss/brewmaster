@@ -1,10 +1,13 @@
 package org.brewmaster.domain;
 
-import javax.persistence.*;
+import javax.persistence.Entity;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
+import javax.persistence.OrderColumn;
 import java.util.List;
 
 @Entity
-public class Mash extends AbstractEntity<Mash> {
+public class Mash extends BaseEntity {
 
     @ManyToOne
     private MashTun mashTun;
@@ -19,7 +22,6 @@ public class Mash extends AbstractEntity<Mash> {
 
     @OneToMany
     @OrderColumn(name="order")
-    //@JoinColumn(name="mash_id", nullable=false)
     private List<MashStep> steps;
 
     public List<MashStep> getSteps() {

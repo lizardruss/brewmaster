@@ -3,7 +3,6 @@ package org.brewmaster.domain;
 import net.sf.oval.constraint.Min;
 
 import javax.persistence.Embeddable;
-import javax.persistence.Entity;
 
 @Embeddable
 public class Infusion {

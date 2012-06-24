@@ -1,19 +1,18 @@
 package org.brewmaster.parser;
 
-import java.io.FileInputStream;
-import java.util.Arrays;
-import java.util.LinkedList;
-import java.util.List;
-import java.util.Scanner;
-import java.util.StringTokenizer;
-import java.util.regex.Pattern;
-
 import org.apache.pdfbox.pdfparser.PDFParser;
 import org.apache.pdfbox.pdmodel.PDDocument;
 import org.apache.pdfbox.util.PDFTextStripper;
 import org.brewmaster.domain.Style;
 import org.brewmaster.domain.StyleCategory;
 import org.brewmaster.domain.StyleStatistics;
+
+import java.io.FileInputStream;
+import java.util.Arrays;
+import java.util.LinkedList;
+import java.util.List;
+import java.util.Scanner;
+import java.util.regex.Pattern;
 
 import static org.brewmaster.parser.BjcpPatterns.*;
 

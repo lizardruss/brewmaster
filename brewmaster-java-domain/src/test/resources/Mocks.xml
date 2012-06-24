@@ -9,8 +9,4 @@
         </property>
     </bean>
 
-    <bean id="dao" factory-bean="context" factory-method="mock" class="org.brewmaster.persistence.EntityDao">
-        <constructor-arg value="org.brewmaster.persistence.EntityDao"/>
-    </bean>
-
 </beans>

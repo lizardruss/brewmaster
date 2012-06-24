@@ -1,8 +1,7 @@
 package org.brewmaster.domain;
 
-import java.util.List;
-
 import javax.persistence.Id;
+import java.util.List;
 
 public class Style {
     @Id
