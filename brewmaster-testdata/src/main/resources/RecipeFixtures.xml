@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+                           http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
+
+    <import resource="HopFixtures.xml"/>
+    <import resource="MaltFixtures.xml"/>
+    <import resource="MashTunFixtures.xml"/>
+
+    <bean id="toastedAle" class="org.brewmaster.domain.Recipe" scope="prototype">
+        <property name="name" value="Toasted Ale"/>
+        <property name="description" value="Blue Point Toasted Lager ale clone."/>
+        <property name="malts">
+            <list>
+                <bean class="org.brewmaster.domain.MaltAddition">
+                    <property name="type" ref="marisOtter"/>
+                    <property name="weight" value="6.5"/>
+                </bean>
+                <bean class="org.brewmaster.domain.MaltAddition">
+                    <property name="type" ref="munichLight"/>
+                    <property name="weight" value="2"/>
+                </bean>
+                <bean class="org.brewmaster.domain.MaltAddition">
+                    <property name="type" ref="wheat"/>
+                    <property name="weight" value=".5"/>
+                </bean>
+                <bean class="org.brewmaster.domain.MaltAddition">
+                    <property name="type" ref="crystal20"/>
+                    <property name="weight" value=".5"/>
+                </bean>
+                <bean class="org.brewmaster.domain.MaltAddition">
+                    <property name="type" ref="caraPils"/>
+                    <property name="weight" value=".25"/>
+                </bean>
+                <bean class="org.brewmaster.domain.MaltAddition">
+                    <property name="type" ref="caraVienne"/>
+                    <property name="weight" value=".25"/>
+                </bean>
+            </list>
+        </property>
+        <property name="mash" ref="toastedAleMash"/>
+    </bean>
+
+    <bean id="toastedAleMash" class="org.brewmaster.domain.Mash">
+        <property name="mashTun" ref="rubbermaidCooler"/>
+        <property name="steps">
+            <list>
+                <bean class="org.brewmaster.domain.MashStep">
+                    <property name="initialTemperature" value="80"/>
+                    <property name="order" value="0"/>
+                    <property name="targetTemperature" value="152"/>
+                    <property name="infusion">
+                        <bean class="org.brewmaster.domain.Infusion">
+                            <property name="volume" value="15"/>
+                        </bean>
+                    </property>
+                </bean>
+            </list>
+        </property>
+        <property name="thickness" value="1.5"/>
+    </bean>
+
+</beans>

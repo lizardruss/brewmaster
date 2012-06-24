@@ -1,6 +1,7 @@
 package org.brewmaster.persistence;
 
 public interface EntityDao {
-	public <E extends Entity<?>> void save(E entity);
-	public <E extends Entity<?>> void delete(E entity);
+	public <E> void save(E entity);
+	public <E> void delete(E entity);
+	public <E> void merge(E entity);
 }

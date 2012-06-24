@@ -6,17 +6,18 @@ import static org.junit.Assert.*;
 
 import org.junit.Before;
 import org.junit.Test;
+import org.junit.runner.RunWith;
+import org.springframework.test.context.ContextConfiguration;
+import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
+import javax.annotation.Resource;
+
+@RunWith(SpringJUnit4ClassRunner.class)
+@ContextConfiguration(locations = { "classpath:Mocks.xml", "classpath:MaltFixtures.xml" })
 public class MaltTest {
-	
-	private Malt malt;
 
-	@Before
-	public void setUp() throws Exception {
-		malt = new Malt();
-		malt.setName("Maris Otter");
-		malt.setDescription("The go to malt for british style ales.");
-	}
+    @Resource(name="marisOtter")
+	private Malt malt;
 	
 	@Test
 	public void testValid() {
@@ -46,17 +47,4 @@ public class MaltTest {
 		malt.setName("");
 		assertErrorCodes(malt, "malt.name.empty");
 	}
-
-	@Test
-	public void testUpdate() {
-		Malt templateEntity = new Malt();
-		templateEntity.setName("Maris Otter");
-		templateEntity.setDescription("Malt grown by otters name Maris.");
-		
-		malt.update(templateEntity);
-		
-		assertEquals(templateEntity.getName(), malt.getName());
-		assertEquals(templateEntity.getDescription(), malt.getDescription());
-	}
-
 }

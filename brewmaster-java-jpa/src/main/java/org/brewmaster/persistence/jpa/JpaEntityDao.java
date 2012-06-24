@@ -14,12 +14,17 @@ public class JpaEntityDao extends JpaRepository implements EntityDao {
 	private EntityManager entityManager;
 
 	@Override
-	public <E extends Entity<?>> void save(E entity) {
+	public <E> void save(E entity) {
 		entityManager.persist(entity);
 	}
 
 	@Override
-	public <E extends Entity<?>> void delete(E entity) {
+	public <E> void delete(E entity) {
 		entityManager.remove(entity);
+	}
+
+	@Override
+	public <E> void merge(E entity) {
+		entityManager.merge(entity);
 	}
 }

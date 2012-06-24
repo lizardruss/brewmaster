@@ -6,18 +6,18 @@ import static org.junit.Assert.*;
 
 import org.junit.Before;
 import org.junit.Test;
+import org.junit.runner.RunWith;
+import org.springframework.test.context.ContextConfiguration;
+import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
+import javax.annotation.Resource;
+
+@RunWith(SpringJUnit4ClassRunner.class)
+@ContextConfiguration(locations = { "classpath:Mocks.xml", "classpath:RecipeFixtures.xml" })
 public class RecipeTest {
-	
-	private Recipe recipe;
 
-	@Before
-	public void setUp() throws Exception {
-		recipe = new Recipe();
-		recipe.setName("Krampus Red");
-		recipe.setDescription("Yukon Brewing's Arctic Red clone.");
-	}
-	
+    @Resource(name = "toastedAle")
+	private Recipe recipe;
 
 	@Test
 	public void testValid() {
@@ -47,17 +47,4 @@ public class RecipeTest {
 		recipe.setName("");
 		assertErrorCodes(recipe, "recipe.name.empty");
 	}
-
-	@Test
-	public void testUpdate() {
-		Recipe templateEntity = new Recipe();
-		templateEntity.setName("Krampus Red");
-		templateEntity.setDescription("My favorite recipe.");
-		
-		recipe.update(templateEntity);
-		
-		assertEquals(templateEntity.getName(), recipe.getName());
-		assertEquals(templateEntity.getDescription(), recipe.getDescription());
-	}
-
 }

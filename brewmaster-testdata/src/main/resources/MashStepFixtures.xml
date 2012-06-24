@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <bean id="singleInfusion80To152" class="org.brewmaster.domain.MashStep" scope="prototype">
+        <property name="initialTemperature" value="80"/>
+        <property name="order" value="0"/>
+        <property name="targetTemperature" value="152"/>
+        <property name="infusion">
+            <bean class="org.brewmaster.domain.Infusion">
+                <property name="volume" value="15"/>
+            </bean>
+        </property>
+    </bean>
+
+</beans>

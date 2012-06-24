@@ -17,7 +17,7 @@
         <dependency>
             <groupId>com.russellcentanni</groupId>
             <artifactId>brewmaster-java-persistence</artifactId>
-            <version>${version}</version>
+            <version>${project.version}</version>
         </dependency>
         <dependency>
             <groupId>org.hibernate.javax.persistence</groupId>

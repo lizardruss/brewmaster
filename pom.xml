@@ -16,6 +16,7 @@
 		<module>brewmaster-java-validation</module>
 		<module>brewmaster-war</module>
 		<module>brewmaster-data</module>
+		<module>brewmaster-testdata</module>
 	</modules>
 
 </project>

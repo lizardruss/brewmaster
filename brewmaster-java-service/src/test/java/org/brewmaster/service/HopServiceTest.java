@@ -1,16 +1,11 @@
 package org.brewmaster.service;
 
-import static org.brewmaster.testing.HopFixtures.cascade;
-import static org.brewmaster.testing.HopFixtures.centennial;
-import static org.brewmaster.testing.HopFixtures.hallertauer;
-import static org.brewmaster.testing.HopFixtures.magnum;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertNotSame;
 import static org.junit.Assert.assertNull;
 
-import java.util.LinkedList;
 import java.util.List;
 
 import javax.annotation.Resource;
@@ -26,7 +21,7 @@ import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 @RunWith(SpringJUnit4ClassRunner.class)
-@ContextConfiguration(locations = { "classpath:applicationContext.xml" })
+@ContextConfiguration(locations = { "classpath:applicationContext.xml", "classpath:HopFixtures.xml" })
 public class HopServiceTest {
 
 	@Resource
@@ -36,20 +31,14 @@ public class HopServiceTest {
 	private HopService fixture;
 
 	private Hop entity;
-	
+
+    @Resource
 	private List<Hop> allEntities;
 
 	@Before
 	public void setUp() throws Exception {
-		allEntities = new LinkedList<Hop>();
-		allEntities.add(cascade());
-		allEntities.add(centennial());
-		allEntities.add(hallertauer());
-		allEntities.add(magnum());
-
 		integrationTestHelper.persistNow(allEntities);
-
-		entity = allEntities.get(0);
+        entity = allEntities.get(0);
 	}
 	
 	@After
@@ -129,6 +118,6 @@ public class HopServiceTest {
 		List<Hop> entities = fixture.list();
 
 		assertNotNull(entities);
-		assertEquals(4, entities.size());
+		assertEquals(5, entities.size());
 	}
 }

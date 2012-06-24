@@ -1,10 +1,5 @@
 package org.brewmaster.service;
 
-import static org.brewmaster.testing.MaltFixtures.carapils;
-import static org.brewmaster.testing.MaltFixtures.crystal;
-import static org.brewmaster.testing.MaltFixtures.germanMunich;
-import static org.brewmaster.testing.MaltFixtures.pale2row;
-import static org.brewmaster.testing.MaltFixtures.pale6row;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertNotNull;
@@ -27,7 +22,7 @@ import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 @RunWith(SpringJUnit4ClassRunner.class)
-@ContextConfiguration(locations = { "classpath:applicationContext.xml" })
+@ContextConfiguration(locations = { "classpath:applicationContext.xml", "classpath:MaltFixtures.xml" })
 public class MaltServiceTest {
 
 	@Resource
@@ -38,19 +33,12 @@ public class MaltServiceTest {
 
 	private Malt entity;
 
+    @Resource
 	private List<Malt> allEntities;
 
 	@Before
 	public void setUp() throws Exception {
-		allEntities = new LinkedList<Malt>();
-		allEntities.add(crystal());
-		allEntities.add(pale2row());
-		allEntities.add(pale6row());
-		allEntities.add(germanMunich());
-		allEntities.add(carapils());
-
 		integrationTestHelper.persistNow(allEntities);
-
 		entity = allEntities.get(0);
 	}
 
@@ -71,7 +59,7 @@ public class MaltServiceTest {
 	@Test(expected = PersistenceException.class)
 	public void testSaveExisting() throws Exception {
 		Malt entity = new Malt();
-		entity.setName("Crystal");
+		entity.setName("Crystal 10");
 
 		fixture.save(entity);
 	}
@@ -131,6 +119,6 @@ public class MaltServiceTest {
 		List<Malt> entities = fixture.list();
 
 		assertNotNull(entities);
-		assertEquals(5, entities.size());
+		assertEquals(9, entities.size());
 	}
 }

@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <bean id="caraPils" class="org.brewmaster.domain.Malt" scope="prototype">
+        <property name="name" value="Carapils"/>
+    </bean>
+
+    <bean id="caraVienne" class="org.brewmaster.domain.Malt" scope="prototype">
+        <property name="name" value="CaraVienne"/>
+    </bean>
+
+    <bean id="crystal10" class="org.brewmaster.domain.Malt" scope="prototype">
+        <property name="name" value="Crystal 10"/>
+    </bean>
+
+    <bean id="crystal20" class="org.brewmaster.domain.Malt" scope="prototype">
+        <property name="name" value="Crystal 20"/>
+    </bean>
+
+    <bean id="marisOtter" class="org.brewmaster.domain.Malt" scope="prototype">
+        <property name="name" value="Maris Otter"/>
+        <property name="description">
+            <value>
+                3.5-4.5° L. This variety of barley has long been the favorite of English brewers for its brewhouse performance and rich, slightly nutty flavor. An excellent malt for any English beer style.
+            </value>
+        </property>
+    </bean>
+
+    <bean id="munichLight" class="org.brewmaster.domain.Malt" scope="prototype">
+        <property name="name" value="Munich (Light)"/>
+    </bean>
+
+    <bean id="pale2row" class="org.brewmaster.domain.Malt" scope="prototype">
+        <property name="name" value="Pale 2-Row"/>
+    </bean>
+
+    <bean id="pale6row" class="org.brewmaster.domain.Malt" scope="prototype">
+        <property name="name" value="Pale 6-Row"/>
+    </bean>
+
+    <bean id="wheat" class="org.brewmaster.domain.Malt" scope="prototype">
+        <property name="name" value="Wheat"/>
+    </bean>
+
+</beans>

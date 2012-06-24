@@ -34,9 +34,4 @@ public class Malt extends AbstractEntity<Malt> {
 	public void setName(String name) {
 		this.name = name;
 	}
-
-	public void update(Malt templateEntity) {
-		setName(templateEntity.getName());
-		setDescription(templateEntity.getDescription());
-	}
 }

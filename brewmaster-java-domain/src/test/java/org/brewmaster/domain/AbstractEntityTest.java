@@ -8,31 +8,30 @@ import org.brewmaster.persistence.EntityDao;
 import org.brewmaster.validation.IdRequired;
 import org.jmock.Expectations;
 import org.jmock.Mockery;
-import org.jmock.integration.junit4.JUnit4Mockery;
-import org.jmock.lib.legacy.ClassImposteriser;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
+import org.junit.runner.RunWith;
+import org.springframework.test.context.ContextConfiguration;
+import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
+import javax.annotation.Resource;
+
+@RunWith(SpringJUnit4ClassRunner.class)
+@ContextConfiguration(locations = { "classpath:Mocks.xml" })
 public class AbstractEntityTest {
 
-	private Mockery context = new JUnit4Mockery() {
-		{
-			setImposteriser(ClassImposteriser.INSTANCE);
-		}
-	};
+    @Resource
+	private Mockery context;
 
-	private AbstractEntity<?> fixture;
+	private AbstractEntity fixture;
 
+    @Resource(name="dao")
 	private EntityDao dao;
 
 	@Before
 	public void setUp() throws Exception {
-		fixture = new AbstractEntity<Integer>() {
-			public void update(Integer templateEntity) {
-				// TODO Auto-generated method stub
-			}
-		};
+		fixture = new AbstractEntity<Integer>() {};
 		fixture.setId(1L);
 
 		dao = context.mock(EntityDao.class);
@@ -53,6 +52,19 @@ public class AbstractEntityTest {
 		});
 
 		fixture.save();
+	}
+
+    @Test
+	public void testUpdate() {
+        final AbstractEntity template = new AbstractEntity() {};
+
+        context.checking(new Expectations() {
+			{
+				oneOf(dao).merge(template);
+			}
+		});
+
+		fixture.update(template);
 	}
 
 	@Test

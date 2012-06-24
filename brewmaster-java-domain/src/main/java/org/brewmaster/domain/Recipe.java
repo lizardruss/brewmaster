@@ -1,11 +1,11 @@
 package org.brewmaster.domain;
 
-import javax.persistence.Entity;
-import javax.persistence.Table;
-import javax.persistence.UniqueConstraint;
+import javax.persistence.*;
 
 import net.sf.oval.constraint.NotEmpty;
 import net.sf.oval.constraint.NotNull;
+
+import java.util.List;
 
 @Entity
 @Table(uniqueConstraints = @UniqueConstraint(name = "UNIQUE_NAME", columnNames = "name"))
@@ -23,6 +23,28 @@ public class Recipe extends AbstractEntity<Recipe> {
 		this.description = description;
 	}
 
+    @OneToMany
+    private List<MaltAddition> malts;
+
+    public List<MaltAddition> getMalts() {
+        return malts;
+    }
+
+    public void setMalts(List<MaltAddition> malts) {
+        this.malts = malts;
+    }
+
+    @OneToOne
+    private Mash mash;
+
+    public Mash getMash() {
+        return mash;
+    }
+
+    public void setMash(Mash mash) {
+        this.mash = mash;
+    }
+
 	@NotNull(errorCode = "recipe.name.null")
 	@NotEmpty(errorCode = "recipe.name.empty")
 	private String name;
@@ -35,8 +57,13 @@ public class Recipe extends AbstractEntity<Recipe> {
 		this.name = name;
 	}
 
-	public void update(Recipe templateEntity) {
-		setDescription(templateEntity.getDescription());
-		setName(templateEntity.getName());
-	}
+    public Double calculateGrainWeight()
+    {
+        Double grainWeight = 0.0;
+        for (MaltAddition malt : getMalts())
+        {
+            grainWeight += malt.getWeight();
+        }
+        return grainWeight;
+    }
 }

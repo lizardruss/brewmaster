@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <bean id="cascade" class="org.brewmaster.domain.Hop" scope="prototype">
+        <property name="name" value="Cascade"/>
+        <property name="description">
+            <value>
+                Cascade hops contains moderate alpha acid content ranging from 4.5% to 7%. Its real strength is in the aroma, as it was the premier aroma hop developed in the U.S. This mettlesome grower bears a verdant, botanic bouquet. It carries some spicyness to it as well. The aroma of Cascade also comes with citrus, sometimes compared to grapefruit. This no doubt comes from the higher levels of myrcene. Farnesene also registers fairly high in Cascade, which is used in the perfume and food industry.
+            </value>
+        </property>
+    </bean>
+
+    <bean id="centennial" class="org.brewmaster.domain.Hop" scope="prototype">
+        <property name="name" value="Centennial"/>
+        <property name="description">
+            <value>
+                Centennial Hops was first created in 1974 and boasts an alpha acid rating of 9.5%-11.5%. It is sometimes referred to as a Super Cascade, however it is lighter on the citrus aromas. Centennial works undoubtedly well in Pale Ales and India Pale Ales, where some bottomline bitterness is needed with the top end aroma. The floral flavor and aroma of this variety is evident in many commercial beers.
+            </value>
+        </property>
+    </bean>
+
+    <bean id="hallertauer-mittelfrueh" class="org.brewmaster.domain.Hop" scope="prototype">
+        <property name="name" value="Hallertauer Mittelfrüh"/>
+        <property name="description">
+            <value>
+                Hallertauer Mittelfrüh is an aroma variety with an alpha acid rating of 3.5%-5.5%. It is closely associated with the German Style Lagers, it is part of the Hallertauer family of hops. Hallertauer Mittelfrüh has made its mark on the world of brewing, and is known for its slightly spicy aroma and character. It has moderately high myrcene, and caryophyllene oil, which help contribute to the aroma profile.
+            </value>
+        </property>
+    </bean>
+
+    <bean id="hallertauer-magnum" class="org.brewmaster.domain.Hop" scope="prototype">
+        <property name="name" value="Hallertauer Magnum"/>
+        <property name="description">
+            <value>
+                Hallertaur Magnum, or Magnum, is commonly used as a base bittering hops in many recipes. It provides the bitter foundation from which to build upon. Hallertauer Magnum has a somewhat unnoticeable aroma. And although this lack of character which gives so many other varieties their luster, it comes as an asset for this variety as it offers the brewer a different type of tool for the pot. Hallertauer Magnum has high an alpha acid rating of 12.0%-14.0%. And although the essential oils are very present, and the total oil within the cones is on the high side, the overall combination along with the genetics downplay their overall influence. These characteristics combined, make Hallertauer Magnum extremely appropriate for early boil additions.
+            </value>
+        </property>
+    </bean>
+
+    <bean id="liberty" class="org.brewmaster.domain.Hop" scope="prototype">
+        <property name="name" value="Liberty"/>
+        <property name="description">
+            <value>
+                Like its German heritage, from the largest growing hops region in the world (Hallertau), Liberty Hops is an aroma variety with an alpha acid rating of 3.0%-6.0%. This variety, which was released in 1991 is likened to noble hops varieties, and comes with a delicate floral bouquet that has essence of spice. Liberty Hops is used in many different fashions and in many styles of beers. It will contribute bitterness at the beginning of a boil, and is used in that capacity. Liberty is more aggressive on the aroma contribution late in the boil, as it comes equipped with high levels of humulene and caryophyllene oil. Humulene provides the earthy spice and withstands heat better than caryophyllene, which is known for its essence of grapes, peaches, and vanilla.
+            </value>
+        </property>
+    </bean>
+
+</beans>

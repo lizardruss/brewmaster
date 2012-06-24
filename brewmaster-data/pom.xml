@@ -18,7 +18,7 @@
 		<dependency>
 			<groupId>com.russellcentanni</groupId>
 			<artifactId>brewmaster-java-domain</artifactId>
-			<version>${version}</version>
+			<version>${project.version}</version>
 		</dependency>
 		<dependency>
 			<groupId>org.apache.pdfbox</groupId>

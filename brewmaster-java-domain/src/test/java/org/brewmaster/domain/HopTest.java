@@ -6,17 +6,18 @@ import static org.junit.Assert.assertEquals;
 
 import org.junit.Before;
 import org.junit.Test;
+import org.junit.runner.RunWith;
+import org.springframework.test.context.ContextConfiguration;
+import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
+import javax.annotation.Resource;
+
+@RunWith(SpringJUnit4ClassRunner.class)
+@ContextConfiguration(locations = { "classpath:Mocks.xml", "classpath:HopFixtures.xml" })
 public class HopTest {
 
+    @Resource(name = "cascade")
 	private Hop hop;
-
-	@Before
-	public void setUp() throws Exception {
-		hop = new Hop();
-		hop.setName("Williamette");
-		hop.setDescription("Floral with citrus notes.");
-	}
 
 	@Test
 	public void testValid() {
@@ -46,17 +47,4 @@ public class HopTest {
 		hop.setName("");
 		assertErrorCodes(hop, "hop.name.empty");
 	}
-
-	@Test
-	public void testUpdate() {
-		Hop templateEntity = new Hop();
-		templateEntity.setName("Williamette");
-		templateEntity.setDescription("Better description.");
-
-		hop.update(templateEntity);
-
-		assertEquals(templateEntity.getName(), hop.getName());
-		assertEquals(templateEntity.getDescription(), hop.getDescription());
-	}
-
 }

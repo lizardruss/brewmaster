@@ -32,7 +32,7 @@ abstract public class AbstractEntity<T> implements Entity<T> {
 		return id;
 	}
 
-	public void setId(Long id) {
+    public void setId(Long id) {
 		this.id = id;
 	}
 
@@ -47,11 +47,15 @@ abstract public class AbstractEntity<T> implements Entity<T> {
 		this.version = version;
 	}
 
-	public void save() {
-		dao.save(this);
-	}
+    public void save() {
+        dao.save(this);
+    }
 
-	public void delete() {
-		dao.delete(this);
-	}
+    public void update(T templateEntity) {
+        dao.merge(templateEntity);
+    }
+
+    public void delete() {
+        dao.delete(this);
+    }
 }
