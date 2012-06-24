@@ -16,7 +16,7 @@
 
 	<properties>
 		<org.springframework.version>3.0.7.RELEASE</org.springframework.version>
-		<org.hibernate.version>4.1.5-SNAPSHOT</org.hibernate.version>
+		<org.hibernate.version>4.1.4.Final</org.hibernate.version>
 		<org.jmock.version>2.5.1</org.jmock.version>
 	</properties>
 
