@@ -21,7 +21,7 @@ public class Mash extends BaseEntity {
     }
 
     @OneToMany
-    @OrderColumn(name="order")
+    @OrderColumn(name = "order")
     private List<MashStep> steps;
 
     public List<MashStep> getSteps() {

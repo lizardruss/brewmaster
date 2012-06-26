@@ -15,74 +15,75 @@ import static net.sf.oval.testing.Assert.assertErrorCodes;
 import static net.sf.oval.testing.Assert.assertValid;
 
 @RunWith(SpringJUnit4ClassRunner.class)
-@ContextConfiguration(locations = { "classpath:Mocks.xml" })
+@ContextConfiguration(locations = {"classpath:Mocks.xml"})
 public class BaseEntityTest {
 
     @Resource
-	private Mockery context;
+    private Mockery context;
 
-	private BaseEntity fixture;
+    private BaseEntity fixture;
 
-	@Before
-	public void setUp() throws Exception {
-		fixture = new BaseEntity() {};
-		fixture.setId(1L);
-	}
+    @Before
+    public void setUp() throws Exception {
+        fixture = new BaseEntity() {
+        };
+        fixture.setId(1L);
+    }
 
-	@After
-	public void tearDown() throws Exception {
-		context.assertIsSatisfied();
-	}
+    @After
+    public void tearDown() throws Exception {
+        context.assertIsSatisfied();
+    }
 
-	@Test
-	public void testValidIdWhenIdRequired() {
-		fixture.setId(1L);
+    @Test
+    public void testValidIdWhenIdRequired() {
+        fixture.setId(1L);
 
-		assertValid(fixture, IdRequired.PROFILE);
-	}
+        assertValid(fixture, IdRequired.PROFILE);
+    }
 
-	@Test
-	public void testNullIdInvalidWhenIdRequired() {
-		fixture.setId(null);
+    @Test
+    public void testNullIdInvalidWhenIdRequired() {
+        fixture.setId(null);
 
-		assertErrorCodes(fixture, IdRequired.PROFILE,
-				new String[] { "entity.id.null" });
-	}
+        assertErrorCodes(fixture, IdRequired.PROFILE,
+                new String[]{"entity.id.null"});
+    }
 
-	@Test
-	public void testZeroIdInvalidWhenIdRequired() {
-		fixture.setId(0L);
+    @Test
+    public void testZeroIdInvalidWhenIdRequired() {
+        fixture.setId(0L);
 
-		assertErrorCodes(fixture, IdRequired.PROFILE,
-				new String[] { "entity.id.min" });
-	}
+        assertErrorCodes(fixture, IdRequired.PROFILE,
+                new String[]{"entity.id.min"});
+    }
 
-	@Test
-	public void testNegativeIdInvalidWhenIdRequired() {
-		fixture.setId(-1L);
+    @Test
+    public void testNegativeIdInvalidWhenIdRequired() {
+        fixture.setId(-1L);
 
-		assertErrorCodes(fixture, IdRequired.PROFILE,
-				new String[] { "entity.id.min" });
-	}
+        assertErrorCodes(fixture, IdRequired.PROFILE,
+                new String[]{"entity.id.min"});
+    }
 
-	@Test
-	public void testNullIdValidWhenIdNotRequired() {
-		fixture.setId(null);
+    @Test
+    public void testNullIdValidWhenIdNotRequired() {
+        fixture.setId(null);
 
-		assertValid(fixture);
-	}
+        assertValid(fixture);
+    }
 
-	@Test
-	public void testZeroIdValidWhenIdNotRequired() {
-		fixture.setId(0L);
+    @Test
+    public void testZeroIdValidWhenIdNotRequired() {
+        fixture.setId(0L);
 
-		assertValid(fixture);
-	}
+        assertValid(fixture);
+    }
 
-	@Test
-	public void testNegativeIdValidWhenIdNotRequired() {
-		fixture.setId(-1L);
+    @Test
+    public void testNegativeIdValidWhenIdNotRequired() {
+        fixture.setId(-1L);
 
-		assertValid(fixture);
-	}
+        assertValid(fixture);
+    }
 }

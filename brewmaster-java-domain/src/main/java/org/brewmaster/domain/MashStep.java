@@ -67,12 +67,10 @@ public class MashStep extends BaseEntity {
         this.targetTemperature = targetTemperature;
     }
 
-    public Double calculateInfusionTemperature(MashTun mashTun, Double grainWeight)
-    {
+    public Double calculateInfusionTemperature(MashTun mashTun, Double grainWeight) {
         Double infusionTemperature = 0.0;
         Boolean firstInfusion = getOrder() == 0;
-        if (firstInfusion)
-        {
+        if (firstInfusion) {
             // (Td - Tm)
             Double temperatureDelta = getTargetTemperature() - getInitialTemperature();
 

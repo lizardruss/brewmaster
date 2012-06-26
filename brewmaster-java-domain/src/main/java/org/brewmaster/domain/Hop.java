@@ -12,29 +12,28 @@ import javax.persistence.UniqueConstraint;
 @Table(uniqueConstraints = @UniqueConstraint(name = "UNIQUE_NAME", columnNames = "name"))
 public class Hop extends BaseEntity {
 
-	@NotNull(errorCode = "hop.description.null")
-	@NotEmpty(errorCode = "hop.description.empty")
+    @NotNull(errorCode = "hop.description.null")
+    @NotEmpty(errorCode = "hop.description.empty")
     @Lob
-	private String description;
+    private String description;
 
-	public String getDescription() {
-		return description;
-	}
+    public String getDescription() {
+        return description;
+    }
 
-	public void setDescription(String description) {
-		this.description = description;
-	}
+    public void setDescription(String description) {
+        this.description = description;
+    }
 
-	
-	@NotNull(errorCode = "hop.name.null")
-	@NotEmpty(errorCode = "hop.name.empty")
-	private String name;
+    @NotNull(errorCode = "hop.name.null")
+    @NotEmpty(errorCode = "hop.name.empty")
+    private String name;
 
-	public String getName() {
-		return name;
-	}
+    public String getName() {
+        return name;
+    }
 
-	public void setName(String name) {
-		this.name = name;
-	}
+    public void setName(String name) {
+        this.name = name;
+    }
 }

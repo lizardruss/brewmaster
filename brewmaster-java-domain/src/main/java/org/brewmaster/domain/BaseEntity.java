@@ -13,30 +13,30 @@ import javax.persistence.Version;
 @Configurable
 @MappedSuperclass
 public class BaseEntity {
-	@Id
-	@GeneratedValue
-	@NotNull(errorCode = "entity.id.null", profiles = {IdRequired.PROFILE})
-	@Min(value = 1, errorCode = "entity.id.min", profiles = {IdRequired.PROFILE})
-	private Long id;
+    @Id
+    @GeneratedValue
+    @NotNull(errorCode = "entity.id.null", profiles = {IdRequired.PROFILE})
+    @Min(value = 1, errorCode = "entity.id.min", profiles = {IdRequired.PROFILE})
+    private Long id;
 
-	public Long getId() {
-		return id;
-	}
+    public Long getId() {
+        return id;
+    }
 
     public void setId(Long id) {
-		this.id = id;
-	}
+        this.id = id;
+    }
 
-	@Version
-	private Long version;
+    @Version
+    private Long version;
 
-	public Long getVersion() {
-		return version;
-	}
+    public Long getVersion() {
+        return version;
+    }
 
-	public void setVersion(Long version) {
-		this.version = version;
-	}
+    public void setVersion(Long version) {
+        this.version = version;
+    }
 
     @Override
     public boolean equals(Object o) {

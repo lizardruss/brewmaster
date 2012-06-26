@@ -1,57 +1,57 @@
 <project
-	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd"
-	xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+        xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd"
+        xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
 
-	<modelVersion>4.0.0</modelVersion>
+    <modelVersion>4.0.0</modelVersion>
 
-	<parent>
-		<artifactId>brewmaster</artifactId>
-		<groupId>com.russellcentanni</groupId>
-		<version>0.0.1-SNAPSHOT</version>
-	</parent>
+    <parent>
+        <artifactId>brewmaster</artifactId>
+        <groupId>com.russellcentanni</groupId>
+        <version>0.0.1-SNAPSHOT</version>
+    </parent>
 
-	<artifactId>brewmaster-java-parent</artifactId>
-	<packaging>pom</packaging>
-	<name>BrewMaster Java Parent</name>
+    <artifactId>brewmaster-java-parent</artifactId>
+    <packaging>pom</packaging>
+    <name>BrewMaster Java Parent</name>
 
-	<properties>
-		<org.springframework.version>3.0.7.RELEASE</org.springframework.version>
-		<org.hibernate.version>4.1.4.Final</org.hibernate.version>
-		<org.jmock.version>2.5.1</org.jmock.version>
-	</properties>
+    <properties>
+        <org.springframework.version>3.0.7.RELEASE</org.springframework.version>
+        <org.hibernate.version>4.1.4.Final</org.hibernate.version>
+        <org.jmock.version>2.5.1</org.jmock.version>
+    </properties>
 
-	<build>
-		<pluginManagement>
-			<plugins>
-				<plugin>
-					<groupId>org.apache.maven.plugins</groupId>
-					<artifactId>maven-compiler-plugin</artifactId>
-					<configuration>
-						<source>1.6</source>
-						<target>1.6</target>
-					</configuration>
-				</plugin>
-				<plugin>
-					<groupId>org.codehaus.mojo</groupId>
-					<artifactId>aspectj-maven-plugin</artifactId>
-					<version>1.4</version>
-					<configuration>
-						<complianceLevel>1.5</complianceLevel>
-						<aspectLibraries>
-							<aspectLibrary>
-								<groupId>org.springframework</groupId>
-								<artifactId>spring-aspects</artifactId>
-							</aspectLibrary>
-						</aspectLibraries>
-					</configuration>
-					<executions>
-						<execution>
-							<goals>
-								<goal>compile</goal>
-								<goal>test-compile</goal>
-							</goals>
-						</execution>
-					</executions>
+    <build>
+        <pluginManagement>
+            <plugins>
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-compiler-plugin</artifactId>
+                    <configuration>
+                        <source>1.6</source>
+                        <target>1.6</target>
+                    </configuration>
+                </plugin>
+                <plugin>
+                    <groupId>org.codehaus.mojo</groupId>
+                    <artifactId>aspectj-maven-plugin</artifactId>
+                    <version>1.4</version>
+                    <configuration>
+                        <complianceLevel>1.5</complianceLevel>
+                        <aspectLibraries>
+                            <aspectLibrary>
+                                <groupId>org.springframework</groupId>
+                                <artifactId>spring-aspects</artifactId>
+                            </aspectLibrary>
+                        </aspectLibraries>
+                    </configuration>
+                    <executions>
+                        <execution>
+                            <goals>
+                                <goal>compile</goal>
+                                <goal>test-compile</goal>
+                            </goals>
+                        </execution>
+                    </executions>
                     <dependencies>
                         <dependency>
                             <groupId>org.aspectj</groupId>
@@ -64,163 +64,163 @@
                             <version>1.6.12</version>
                         </dependency>
                     </dependencies>
-				</plugin>
-			</plugins>
-		</pluginManagement>
-	</build>
+                </plugin>
+            </plugins>
+        </pluginManagement>
+    </build>
 
-	<dependencyManagement>
-		<dependencies>
+    <dependencyManagement>
+        <dependencies>
 
-			<!-- JAVA EXTENTIONS -->
-			<dependency>
-				<groupId>javax.annotation</groupId>
-				<artifactId>jsr250-api</artifactId>
-				<version>1.0</version>
-			</dependency>
-			<dependency>
-				<groupId>org.hibernate.javax.persistence</groupId>
-				<artifactId>hibernate-jpa-2.0-api</artifactId>
-				<version>1.0.1.Final</version>
-			</dependency>
+            <!-- JAVA EXTENTIONS -->
+            <dependency>
+                <groupId>javax.annotation</groupId>
+                <artifactId>jsr250-api</artifactId>
+                <version>1.0</version>
+            </dependency>
+            <dependency>
+                <groupId>org.hibernate.javax.persistence</groupId>
+                <artifactId>hibernate-jpa-2.0-api</artifactId>
+                <version>1.0.1.Final</version>
+            </dependency>
 
-			<!-- ASPECTJ -->
-			<dependency>
-				<groupId>org.aspectj</groupId>
-				<artifactId>aspectjrt</artifactId>
-				<version>1.6.11</version>
-			</dependency>
+            <!-- ASPECTJ -->
+            <dependency>
+                <groupId>org.aspectj</groupId>
+                <artifactId>aspectjrt</artifactId>
+                <version>1.6.11</version>
+            </dependency>
 
-			<!-- SPRING -->
-			<dependency>
-				<groupId>org.springframework</groupId>
-				<artifactId>spring-aop</artifactId>
-				<version>${org.springframework.version}</version>
-			</dependency>
-			<dependency>
-				<groupId>org.springframework</groupId>
-				<artifactId>spring-aspects</artifactId>
-				<version>${org.springframework.version}</version>
-			</dependency>
-			<dependency>
-				<groupId>org.springframework</groupId>
-				<artifactId>spring-beans</artifactId>
-				<version>${org.springframework.version}</version>
-			</dependency>
-			<dependency>
-				<groupId>org.springframework</groupId>
-				<artifactId>spring-context</artifactId>
-				<version>${org.springframework.version}</version>
-			</dependency>
-			<dependency>
-				<groupId>org.springframework</groupId>
-				<artifactId>spring-context-support</artifactId>
-				<version>${org.springframework.version}</version>
-			</dependency>
+            <!-- SPRING -->
+            <dependency>
+                <groupId>org.springframework</groupId>
+                <artifactId>spring-aop</artifactId>
+                <version>${org.springframework.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.springframework</groupId>
+                <artifactId>spring-aspects</artifactId>
+                <version>${org.springframework.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.springframework</groupId>
+                <artifactId>spring-beans</artifactId>
+                <version>${org.springframework.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.springframework</groupId>
+                <artifactId>spring-context</artifactId>
+                <version>${org.springframework.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.springframework</groupId>
+                <artifactId>spring-context-support</artifactId>
+                <version>${org.springframework.version}</version>
+            </dependency>
             <dependency>
                 <groupId>org.springframework.data</groupId>
                 <artifactId>spring-data-jpa</artifactId>
                 <version>1.1.0.RELEASE</version>
             </dependency>
             <dependency>
-				<groupId>org.springframework</groupId>
-				<artifactId>spring-orm</artifactId>
-				<version>${org.springframework.version}</version>
-			</dependency>
-			<dependency>
-				<groupId>org.springframework</groupId>
-				<artifactId>spring-tx</artifactId>
-				<version>${org.springframework.version}</version>
-			</dependency>
-			<dependency>
-				<groupId>org.springframework</groupId>
-				<artifactId>spring-web</artifactId>
-				<version>${org.springframework.version}</version>
-			</dependency>
-			<dependency>
-				<groupId>org.springframework</groupId>
-				<artifactId>spring-webmvc</artifactId>
-				<version>${org.springframework.version}</version>
-			</dependency>
+                <groupId>org.springframework</groupId>
+                <artifactId>spring-orm</artifactId>
+                <version>${org.springframework.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.springframework</groupId>
+                <artifactId>spring-tx</artifactId>
+                <version>${org.springframework.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.springframework</groupId>
+                <artifactId>spring-web</artifactId>
+                <version>${org.springframework.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.springframework</groupId>
+                <artifactId>spring-webmvc</artifactId>
+                <version>${org.springframework.version}</version>
+            </dependency>
 
-			<!-- DATASOURCE -->
-			<dependency>
-				<groupId>commons-dbcp</groupId>
-				<artifactId>commons-dbcp</artifactId>
-				<version>1.4</version>
-			</dependency>
+            <!-- DATASOURCE -->
+            <dependency>
+                <groupId>commons-dbcp</groupId>
+                <artifactId>commons-dbcp</artifactId>
+                <version>1.4</version>
+            </dependency>
 
-			<!-- HIBERNATE -->
-			<dependency>
-				<groupId>org.hibernate</groupId>
-				<artifactId>hibernate-core</artifactId>
-				<version>${org.hibernate.version}</version>
-			</dependency>
-			<dependency>
-				<groupId>org.hibernate</groupId>
-				<artifactId>hibernate-entitymanager</artifactId>
-				<version>${org.hibernate.version}</version>
-			</dependency>
+            <!-- HIBERNATE -->
+            <dependency>
+                <groupId>org.hibernate</groupId>
+                <artifactId>hibernate-core</artifactId>
+                <version>${org.hibernate.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.hibernate</groupId>
+                <artifactId>hibernate-entitymanager</artifactId>
+                <version>${org.hibernate.version}</version>
+            </dependency>
             <dependency>
                 <groupId>org.slf4j</groupId>
                 <artifactId>slf4j-jcl</artifactId>
                 <version>1.6.1</version>
             </dependency>
 
-			<!-- TESTING -->
-			<dependency>
-				<groupId>junit</groupId>
-				<artifactId>junit</artifactId>
-				<version>4.10</version>
-			</dependency>
-			<dependency>
-				<groupId>org.jmock</groupId>
-				<artifactId>jmock-junit4</artifactId>
-				<version>${org.jmock.version}</version>
+            <!-- TESTING -->
+            <dependency>
+                <groupId>junit</groupId>
+                <artifactId>junit</artifactId>
+                <version>4.10</version>
+            </dependency>
+            <dependency>
+                <groupId>org.jmock</groupId>
+                <artifactId>jmock-junit4</artifactId>
+                <version>${org.jmock.version}</version>
                 <exclusions>
                     <exclusion>
                         <groupId>junit</groupId>
                         <artifactId>junit-dep</artifactId>
                     </exclusion>
                 </exclusions>
-			</dependency>
-			<dependency>
-				<groupId>org.jmock</groupId>
-				<artifactId>jmock-legacy</artifactId>
-				<version>${org.jmock.version}</version>
-			</dependency>
-			<dependency>
-				<groupId>org.springframework</groupId>
-				<artifactId>spring-test</artifactId>
-				<version>${org.springframework.version}</version>
-			</dependency>
-			<dependency>
-				<groupId>org.hsqldb</groupId>
-				<artifactId>hsqldb</artifactId>
-				<version>2.2.4</version>
-			</dependency>
-			
-			<!-- VALIDATION -->
-			<dependency>
-				<groupId>net.sf.oval</groupId>
-				<artifactId>oval</artifactId>
-				<version>1.80</version>
-			</dependency>
+            </dependency>
+            <dependency>
+                <groupId>org.jmock</groupId>
+                <artifactId>jmock-legacy</artifactId>
+                <version>${org.jmock.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.springframework</groupId>
+                <artifactId>spring-test</artifactId>
+                <version>${org.springframework.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.hsqldb</groupId>
+                <artifactId>hsqldb</artifactId>
+                <version>2.2.4</version>
+            </dependency>
 
-		</dependencies>
-	</dependencyManagement>
+            <!-- VALIDATION -->
+            <dependency>
+                <groupId>net.sf.oval</groupId>
+                <artifactId>oval</artifactId>
+                <version>1.80</version>
+            </dependency>
 
-	<repositories>
-		<repository>
-			<id>jboss-repository</id>
-			<url>http://repository.jboss.org/nexus/content/groups/public/</url>
-			<releases>
-				<enabled>true</enabled>
-			</releases>
-			<snapshots>
-				<enabled>true</enabled>
-			</snapshots>
-		</repository>
-	</repositories>
+        </dependencies>
+    </dependencyManagement>
+
+    <repositories>
+        <repository>
+            <id>jboss-repository</id>
+            <url>http://repository.jboss.org/nexus/content/groups/public/</url>
+            <releases>
+                <enabled>true</enabled>
+            </releases>
+            <snapshots>
+                <enabled>true</enabled>
+            </snapshots>
+        </repository>
+    </repositories>
 
 </project>

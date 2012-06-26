@@ -16,83 +16,82 @@ import java.util.List;
 import static org.junit.Assert.*;
 
 @RunWith(SpringJUnit4ClassRunner.class)
-@ContextConfiguration(locations = { "classpath:applicationContext.xml", "classpath:HopFixtures.xml" })
+@ContextConfiguration(locations = {"classpath:applicationContext.xml", "classpath:HopFixtures.xml"})
 public class HopServiceTest {
 
-	@Resource
-	private IntegrationTestHelper integrationTestHelper;
-
-	@Resource
-	private HopService fixture;
-
-	private Hop entity;
+    @Resource
+    private IntegrationTestHelper integrationTestHelper;
 
     @Resource
-	private List<Hop> allEntities;
+    private HopService fixture;
 
-	@Before
-	public void setUp() throws Exception {
-		integrationTestHelper.persistNow(allEntities);
+    private Hop entity;
+
+    @Resource
+    private List<Hop> allEntities;
+
+    @Before
+    public void setUp() throws Exception {
+        integrationTestHelper.persistNow(allEntities);
         entity = allEntities.get(0);
-	}
-	
-	@After
-	public void tearDown() throws Exception
-	{
-		integrationTestHelper.clearDatabase();
-	}
-	
-	@Test
-	public void testSave() throws Exception {
-		Hop entity = new Hop();
-		entity.setName("Imaginary");
-		
-		Hop savedEntity = fixture.save(entity);
-		assertNotNull(savedEntity.getId());
-	}
+    }
 
-	@Test(expected = DataIntegrityViolationException.class)
-	public void testSaveExisting() throws Exception {
-		Hop entity = new Hop();
-		entity.setName("Cascade");
+    @After
+    public void tearDown() throws Exception {
+        integrationTestHelper.clearDatabase();
+    }
+
+    @Test
+    public void testSave() throws Exception {
+        Hop entity = new Hop();
+        entity.setName("Imaginary");
+
+        Hop savedEntity = fixture.save(entity);
+        assertNotNull(savedEntity.getId());
+    }
+
+    @Test(expected = DataIntegrityViolationException.class)
+    public void testSaveExisting() throws Exception {
+        Hop entity = new Hop();
+        entity.setName("Cascade");
 
         fixture.save(entity);
-	}
+    }
 
-	@Test
-	public void testDelete() throws Exception {
-		Hop loadedEntity = fixture.get(entity.getId());
-		assertNotNull(loadedEntity);
+    @Test
+    public void testDelete() throws Exception {
+        Hop loadedEntity = fixture.get(entity.getId());
+        assertNotNull(loadedEntity);
 
-		fixture.delete(entity);
+        fixture.delete(entity);
 
-		Hop deletedEntity = fixture.get(entity.getId());
-		assertNull(deletedEntity);
-	}
-	
-	@Test
-	public void testDeleteList() throws Exception {
-		fixture.delete(allEntities);
-	}
+        Hop deletedEntity = fixture.get(entity.getId());
+        assertNull(deletedEntity);
+    }
 
-	@Test
-	public void testGet() throws Exception {
-		assertNotNull(entity.getId());
-		assertFalse(entity.getId().equals(0L));
+    @Test
+    public void testDeleteList() throws Exception {
+        fixture.delete(allEntities);
+    }
 
-		Hop loadedEntity = fixture.get(entity.getId());
+    @Test
+    public void testGet() throws Exception {
+        assertNotNull(entity.getId());
+        assertFalse(entity.getId().equals(0L));
 
-		assertNotNull(loadedEntity);
-		assertNotSame(entity, loadedEntity);
-		assertEquals(entity.getDescription(), loadedEntity.getDescription());
-		assertEquals(entity.getName(), loadedEntity.getName());
-	}
+        Hop loadedEntity = fixture.get(entity.getId());
 
-	@Test
-	public void testList() throws Exception {
-		Iterable<Hop> entities = fixture.list();
+        assertNotNull(loadedEntity);
+        assertNotSame(entity, loadedEntity);
+        assertEquals(entity.getDescription(), loadedEntity.getDescription());
+        assertEquals(entity.getName(), loadedEntity.getName());
+    }
 
-		assertNotNull(entities);
-		assertTrue(entities.iterator().hasNext());
-	}
+    @Test
+    public void testList() throws Exception {
+        Iterable<Hop> entities = fixture.list();
+
+        assertNotNull(entities);
+        assertTrue(entities.iterator().hasNext());
+    }
 }

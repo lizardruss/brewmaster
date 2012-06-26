@@ -8,63 +8,63 @@ public class Style {
     private Long id;
 
     public Long getId() {
-	return id;
+        return id;
     }
 
     public void setId(Long id) {
-	this.id = id;
+        this.id = id;
     }
 
     private String appearance;
 
     public String getAppearance() {
-	return appearance;
+        return appearance;
     }
 
     public void setAppearance(String appearance) {
-	this.appearance = appearance;
+        this.appearance = appearance;
     }
 
     private String aroma;
 
     public String getAroma() {
-	return aroma;
+        return aroma;
     }
 
     public void setAroma(String aroma) {
-	this.aroma = aroma;
+        this.aroma = aroma;
     }
 
     private StyleCategory category;
 
     public StyleCategory getCategory() {
-	return category;
+        return category;
     }
 
     public void setCategory(StyleCategory category) {
-	this.category = category;
+        this.category = category;
     }
 
     private String comments;
 
     public String getComments() {
-	return comments;
+        return comments;
     }
 
     public void setComments(String comments) {
-	this.comments = comments;
+        this.comments = comments;
     }
 
     private List<String> commercialExamples;
 
     public List<String> getCommercialExamples() {
-	return commercialExamples;
+        return commercialExamples;
     }
 
     public void setCommercialExamples(List<String> commercialExamples) {
-	this.commercialExamples = commercialExamples;
+        this.commercialExamples = commercialExamples;
     }
-    
+
     private String description;
 
     public String getDescription() {
@@ -78,13 +78,13 @@ public class Style {
     private String flavor;
 
     public String getFlavor() {
-	return flavor;
+        return flavor;
     }
 
     public void setFlavor(String flavor) {
-	this.flavor = flavor;
+        this.flavor = flavor;
     }
-    
+
     private String history;
 
     public String getHistory() {
@@ -98,86 +98,86 @@ public class Style {
     private String impression;
 
     public String getImpression() {
-	return impression;
+        return impression;
     }
 
     public void setImpression(String impression) {
-	this.impression = impression;
+        this.impression = impression;
     }
 
     private String ingredients;
 
     public String getIngredients() {
-	return ingredients;
+        return ingredients;
     }
 
     public void setIngredients(String ingredients) {
-	this.ingredients = ingredients;
+        this.ingredients = ingredients;
     }
 
     private String mouthfeel;
 
     public String getMouthfeel() {
-	return mouthfeel;
+        return mouthfeel;
     }
 
     public void setMouthfeel(String mouthfeel) {
-	this.mouthfeel = mouthfeel;
+        this.mouthfeel = mouthfeel;
     }
 
     private String name;
 
     public String getName() {
-	return name;
+        return name;
     }
 
     public void setName(String name) {
-	this.name = name;
+        this.name = name;
     }
 
     private StyleStatistics statistics;
 
     public StyleStatistics getStatistics() {
-	return statistics;
+        return statistics;
     }
 
     public void setStatistics(StyleStatistics statistics) {
-	this.statistics = statistics;
+        this.statistics = statistics;
     }
 
     @Override
     public String toString() {
-	StringBuffer buffer = new StringBuffer();
-	buffer.append("Style");
-	buffer.append("\n");
-	buffer.append("\t\t[");
-	buffer.append("\n");
-	buffer.append("\t\t\tappearance=" + appearance);
-	buffer.append("\n");
-	buffer.append("\t\t\taroma=" + aroma);
-	buffer.append("\n");
-	buffer.append("\t\t\tcomments=" + comments);
-	buffer.append("\n");
-	buffer.append("\t\t\tcommercialExamples=" + commercialExamples);
-	buffer.append("\n");
-	buffer.append("\t\t\tdescription=" + description);
-	buffer.append("\n");
-	buffer.append("\t\t\tflavor=" + flavor);
-	buffer.append("\n");
-	buffer.append("\t\t\thistory=" + history);
-	buffer.append("\n");
-	buffer.append("\t\t\timpression=" + impression);
-	buffer.append("\n");
-	buffer.append("\t\t\tingredients=" + ingredients);
-	buffer.append("\n");
-	buffer.append("\t\t\tmouthfeel=" + mouthfeel);
-	buffer.append("\n");
-	buffer.append("\t\t\tname=" + name);
-	buffer.append("\n");
-	buffer.append("\t\t\tstatistics=" + statistics);
-	buffer.append("\n");
-	buffer.append("\t\t]");
-	return buffer.toString();
+        StringBuffer buffer = new StringBuffer();
+        buffer.append("Style");
+        buffer.append("\n");
+        buffer.append("\t\t[");
+        buffer.append("\n");
+        buffer.append("\t\t\tappearance=" + appearance);
+        buffer.append("\n");
+        buffer.append("\t\t\taroma=" + aroma);
+        buffer.append("\n");
+        buffer.append("\t\t\tcomments=" + comments);
+        buffer.append("\n");
+        buffer.append("\t\t\tcommercialExamples=" + commercialExamples);
+        buffer.append("\n");
+        buffer.append("\t\t\tdescription=" + description);
+        buffer.append("\n");
+        buffer.append("\t\t\tflavor=" + flavor);
+        buffer.append("\n");
+        buffer.append("\t\t\thistory=" + history);
+        buffer.append("\n");
+        buffer.append("\t\t\timpression=" + impression);
+        buffer.append("\n");
+        buffer.append("\t\t\tingredients=" + ingredients);
+        buffer.append("\n");
+        buffer.append("\t\t\tmouthfeel=" + mouthfeel);
+        buffer.append("\n");
+        buffer.append("\t\t\tname=" + name);
+        buffer.append("\n");
+        buffer.append("\t\t\tstatistics=" + statistics);
+        buffer.append("\n");
+        buffer.append("\t\t]");
+        return buffer.toString();
     }
 
 }

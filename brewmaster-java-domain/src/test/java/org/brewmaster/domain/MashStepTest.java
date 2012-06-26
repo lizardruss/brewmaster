@@ -10,7 +10,7 @@ import javax.annotation.Resource;
 import static org.junit.Assert.assertEquals;
 
 @RunWith(SpringJUnit4ClassRunner.class)
-@ContextConfiguration(locations = { "classpath:Mocks.xml", "classpath:MashStepFixtures.xml", "classpath:MashTunFixtures.xml" })
+@ContextConfiguration(locations = {"classpath:Mocks.xml", "classpath:MashStepFixtures.xml", "classpath:MashTunFixtures.xml"})
 public class MashStepTest {
 
     @Resource(name = "singleInfusion80To152")
@@ -20,8 +20,7 @@ public class MashStepTest {
     private MashTun mashTun;
 
     @Test
-    public void testCalculateInfusionTemperaturePreheatedMashTun()
-    {
+    public void testCalculateInfusionTemperaturePreheatedMashTun() {
         MashTun preheatedMashTun = new MashTun();
         preheatedMashTun.setThermalMass(0.0);
 
@@ -30,22 +29,19 @@ public class MashStepTest {
     }
 
     @Test
-    public void testCalculateInfusionTemperature10PoundsGrain()
-    {
+    public void testCalculateInfusionTemperature10PoundsGrain() {
         Double infusionTemperature = fixture.calculateInfusionTemperature(mashTun, 10.0);
         assertEquals((Double) 168.27723057013444, infusionTemperature);
     }
 
     @Test
-    public void testCalculateInfusionTemperature15PoundsGrain()
-    {
+    public void testCalculateInfusionTemperature15PoundsGrain() {
         Double infusionTemperature = fixture.calculateInfusionTemperature(mashTun, 15.0);
         assertEquals((Double) 172.87856783377669, infusionTemperature);
     }
 
     @Test
-    public void testCalculateInfusionTemperatureTargetTemperature150()
-    {
+    public void testCalculateInfusionTemperatureTargetTemperature150() {
         fixture.setTargetTemperature(150.0);
 
         Double infusionTemperature = fixture.calculateInfusionTemperature(mashTun, 10.0);

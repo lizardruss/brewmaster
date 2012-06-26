@@ -1,37 +1,37 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project
-		 xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd"
-		 xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+        xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd"
+        xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
 
-	<modelVersion>4.0.0</modelVersion>
+    <modelVersion>4.0.0</modelVersion>
 
-	<parent>
-		<artifactId>brewmaster-java-parent</artifactId>
-		<groupId>com.russellcentanni</groupId>
-		<version>0.0.1-SNAPSHOT</version>
-		<relativePath>../brewmaster-java-parent</relativePath>
-	</parent>
+    <parent>
+        <artifactId>brewmaster-java-parent</artifactId>
+        <groupId>com.russellcentanni</groupId>
+        <version>0.0.1-SNAPSHOT</version>
+        <relativePath>../brewmaster-java-parent</relativePath>
+    </parent>
 
-	<artifactId>brewmaster-war</artifactId>
-	<packaging>war</packaging>
-	<name>BrewMaster Web Application</name>
-	<url>http://www.springframework.org/spring-ws</url>
+    <artifactId>brewmaster-war</artifactId>
+    <packaging>war</packaging>
+    <name>BrewMaster Web Application</name>
+    <url>http://www.springframework.org/spring-ws</url>
 
-	<build>
-		<finalName>brewmaster-war</finalName>
-	</build>
+    <build>
+        <finalName>brewmaster-war</finalName>
+    </build>
 
-	<dependencies>
-		<dependency>
-			<groupId>org.springframework</groupId>
-			<artifactId>spring-oxm</artifactId>
-			<version>${org.springframework.version}</version>
-		</dependency>
-		<dependency>
-			<groupId>org.springframework.ws</groupId>
-			<artifactId>spring-ws-core</artifactId>
-			<version>2.0.1.RELEASE</version>
-		</dependency>
-	</dependencies>
+    <dependencies>
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-oxm</artifactId>
+            <version>${org.springframework.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.ws</groupId>
+            <artifactId>spring-ws-core</artifactId>
+            <version>2.0.1.RELEASE</version>
+        </dependency>
+    </dependencies>
 
 </project>

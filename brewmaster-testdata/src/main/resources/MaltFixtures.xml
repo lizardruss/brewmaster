@@ -22,9 +22,7 @@
     <bean id="marisOtter" class="org.brewmaster.domain.Malt" scope="prototype">
         <property name="name" value="Maris Otter"/>
         <property name="description">
-            <value>
-                3.5-4.5° L. This variety of barley has long been the favorite of English brewers for its brewhouse performance and rich, slightly nutty flavor. An excellent malt for any English beer style.
-            </value>
+            <value>3.5-4.5° L. This variety of barley has long been the favorite of English brewers for its brewhouse performance and rich, slightly nutty flavor. An excellent malt for any English beer style.</value>
         </property>
     </bean>
 

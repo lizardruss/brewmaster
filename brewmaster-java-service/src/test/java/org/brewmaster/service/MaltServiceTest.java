@@ -16,82 +16,82 @@ import java.util.List;
 import static org.junit.Assert.*;
 
 @RunWith(SpringJUnit4ClassRunner.class)
-@ContextConfiguration(locations = { "classpath:applicationContext.xml", "classpath:MaltFixtures.xml" })
+@ContextConfiguration(locations = {"classpath:applicationContext.xml", "classpath:MaltFixtures.xml"})
 public class MaltServiceTest {
 
-	@Resource
-	private IntegrationTestHelper integrationTestHelper;
-
-	@Resource
-	private MaltService fixture;
-
-	private Malt entity;
+    @Resource
+    private IntegrationTestHelper integrationTestHelper;
 
     @Resource
-	private List<Malt> allEntities;
+    private MaltService fixture;
 
-	@Before
-	public void setUp() throws Exception {
-		integrationTestHelper.persistNow(allEntities);
-		entity = allEntities.get(0);
-	}
+    private Malt entity;
 
-	@After
-	public void tearDown() throws Exception {
-		integrationTestHelper.clearDatabase();
-	}
+    @Resource
+    private List<Malt> allEntities;
 
-	@Test
-	public void testSave() throws Exception {
-		Malt entity = new Malt();
-		entity.setName("Imaginary");
+    @Before
+    public void setUp() throws Exception {
+        integrationTestHelper.persistNow(allEntities);
+        entity = allEntities.get(0);
+    }
 
-		Malt savedEntity = fixture.save(entity);
-		assertNotNull(savedEntity.getId());
-	}
+    @After
+    public void tearDown() throws Exception {
+        integrationTestHelper.clearDatabase();
+    }
+
+    @Test
+    public void testSave() throws Exception {
+        Malt entity = new Malt();
+        entity.setName("Imaginary");
+
+        Malt savedEntity = fixture.save(entity);
+        assertNotNull(savedEntity.getId());
+    }
 
     @Test(expected = DataIntegrityViolationException.class)
-	public void testSaveExisting() throws Exception {
-		Malt entity = new Malt();
-		entity.setName("Crystal 10");
+    public void testSaveExisting() throws Exception {
+        Malt entity = new Malt();
+        entity.setName("Crystal 10");
 
-		fixture.save(entity);
-	}
+        fixture.save(entity);
+    }
 
-	@Test
-	public void testDelete() throws Exception {
-		Malt loadedEntity = fixture.get(entity.getId());
-		assertNotNull(loadedEntity);
+    @Test
+    public void testDelete() throws Exception {
+        Malt loadedEntity = fixture.get(entity.getId());
+        assertNotNull(loadedEntity);
 
-		fixture.delete(entity);
+        fixture.delete(entity);
 
-		Malt deletedEntity = fixture.get(entity.getId());
-		assertNull(deletedEntity);
-	}
+        Malt deletedEntity = fixture.get(entity.getId());
+        assertNull(deletedEntity);
+    }
 
-	@Test
-	public void testDeleteList() throws Exception {
-		fixture.delete(allEntities);
-	}
+    @Test
+    public void testDeleteList() throws Exception {
+        fixture.delete(allEntities);
+    }
 
-	@Test
-	public void testGet() throws Exception {
-		assertNotNull(entity.getId());
-		assertFalse(entity.getId().equals(0L));
+    @Test
+    public void testGet() throws Exception {
+        assertNotNull(entity.getId());
+        assertFalse(entity.getId().equals(0L));
 
-		Malt loadedEntity = fixture.get(entity.getId());
+        Malt loadedEntity = fixture.get(entity.getId());
 
-		assertNotNull(loadedEntity);
-		assertNotSame(entity, loadedEntity);
-		assertEquals(entity.getDescription(), loadedEntity.getDescription());
-		assertEquals(entity.getName(), loadedEntity.getName());
-	}
+        assertNotNull(loadedEntity);
+        assertNotSame(entity, loadedEntity);
+        assertEquals(entity.getDescription(), loadedEntity.getDescription());
+        assertEquals(entity.getName(), loadedEntity.getName());
+    }
 
-	@Test
-	public void testList() throws Exception {
-		Iterable<Malt> entities = fixture.list();
+    @Test
+    public void testList() throws Exception {
+        Iterable<Malt> entities = fixture.list();
 
-		assertNotNull(entities);
-		assertTrue(entities.iterator().hasNext());
-	}
+        assertNotNull(entities);
+        assertTrue(entities.iterator().hasNext());
+    }
 }
