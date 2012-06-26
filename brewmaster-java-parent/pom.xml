@@ -15,7 +15,7 @@
     <name>BrewMaster Java Parent</name>
 
     <properties>
-        <org.springframework.version>3.0.7.RELEASE</org.springframework.version>
+        <org.springframework.version>3.1.1.RELEASE</org.springframework.version>
         <org.hibernate.version>4.1.4.Final</org.hibernate.version>
         <org.jmock.version>2.5.1</org.jmock.version>
     </properties>
@@ -212,13 +212,24 @@
 
     <repositories>
         <repository>
+            <id>springsource-repository</id>
+            <name>SpringSource Repository</name>
+            <url>http://repo.springsource.org/release</url>
+            <releases>
+                <enabled>true</enabled>
+            </releases>
+            <snapshots>
+                <enabled>false</enabled>
+            </snapshots>
+        </repository>
+        <repository>
             <id>jboss-repository</id>
             <url>http://repository.jboss.org/nexus/content/groups/public/</url>
             <releases>
                 <enabled>true</enabled>
             </releases>
             <snapshots>
-                <enabled>true</enabled>
+                <enabled>false</enabled>
             </snapshots>
         </repository>
     </repositories>

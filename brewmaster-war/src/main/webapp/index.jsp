@@ -1,8 +1,8 @@
 <html>
-<head><title>Example :: Spring Application</title></head>
+<head><title>BrewMaster</title></head>
 <body>
-<h1>Example - Spring Application</h1>
-
-<p>This is my test.</p>
+<h1>BrewMaster Applications</h1>
+<p><a href="./helloworld/">helloworld</a></p>
+<p><a href="./mashcalculator/">mashcalculator</a></p>
 </body>
 </html>
