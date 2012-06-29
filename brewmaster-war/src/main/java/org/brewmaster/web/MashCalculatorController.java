@@ -10,7 +10,7 @@ public class MashCalculatorController {
     @RequestMapping("/")
     public String welcome()
     {
-        return "index";
+        return "mashcalculator/index";
     }
 
 }

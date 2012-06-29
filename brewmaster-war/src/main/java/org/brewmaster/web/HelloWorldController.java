@@ -13,14 +13,14 @@ public class HelloWorldController {
     public String helloworld(Model model)
     {
         model.addAttribute("name", "World");
-        return "index";
+        return "helloworld/index";
     }
 
     @RequestMapping("/{name}")
     public String helloworldName(@PathVariable String name, Model model)
     {
         model.addAttribute("name", name);
-        return "index";
+        return "helloworld/index";
     }
 
 }

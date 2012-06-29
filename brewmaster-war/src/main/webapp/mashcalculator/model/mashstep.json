@@ -1,0 +1,8 @@
+{
+    "initialTemperature": 80,
+    "order": 0,
+    "targetTemperature": 152,
+    "infusion": {
+        "volume": 15
+    }
+}
